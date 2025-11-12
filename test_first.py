@@ -5,11 +5,9 @@ def test_duckduckgo_click_first_result(page: Page):
     # open results directly to avoid home redirects
     page.goto("https://duckduckgo.com/?q=Playwright+pytest&ia=web")
 
-    # first result (supports both classic and new DDG UI)
     result = page.locator('a[data-testid="result-title-a"], a.result__a').first
     result.wait_for(timeout=15000)
 
-    # basic sanity check on the results page
     expect(page).to_have_title(re.compile("Playwright", re.I))
 
     # click and wait for **same-tab** navigation
