@@ -8,7 +8,7 @@ import pytest
 ])
 def test_duckduckgo_search_results(page: Page, query: str):
     page.goto("https://duckduckgo.com", wait_until="domcontentloaded")
-    search_box = page.get_by_placeholder("Search the web without being tracked")
+    search_box = page.locator("input[name='q']")
     search_box.fill(query)
     search_box.press("Enter")
     first_result = page.locator('a[data-testid="result-title-a"], a.result__a').first
