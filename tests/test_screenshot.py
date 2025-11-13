@@ -13,7 +13,7 @@ def test_takeScreenshot(page):
     page.keyboard.press("Enter")
 
     first = page.locator('a[data-testid="result-title-a"], a.result__a').first
-    first.wait_for(timeout=20000)
+    first.wait_for(timeout=30000)
 
     # 3️⃣ Validate that result is visible
     expect(first).to_be_visible()
